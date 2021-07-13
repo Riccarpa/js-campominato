@@ -41,6 +41,7 @@ console.log(bombsArray);
 
 let UserNumbersArray = [];
 
+let points = 0;
 
 while (UserNumbersArray.length <= 15) {
 
@@ -55,18 +56,14 @@ while (UserNumbersArray.length <= 15) {
 
 
     // confrono gli elementi dei due array
+    if (!bombsArray.includes(number)) {
 
-    let points = 0;
-    for (i = 0; i < UserNumbersArray.length; i++) {
-
-        let element = UserNumbersArray[i];
-
-        if (!bombsArray.includes(element)) {
-            points += 1;
-        } else {
-            alert('Game over ' + 'hai ottenuto ' + points + ' punti');
-            UserNumbersArray = [];
-
-        }
+        points += 1;
+    } else {
+        alert('gameover');
+        UserNumbersArray.length = 16;
     }
+
+
 }
+console.log('Game over ' + 'hai ottenuto ' + points + ' punti');
