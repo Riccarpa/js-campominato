@@ -24,16 +24,33 @@ function randomNumber() {
 }
 
 
-
-
 i = 0;
+while (bombsArray.length <= 15) {
+    let bombs = randomNumber();
+    if (!bombsArray.includes(bombs)) {
 
-while (bombsArray.length <= 15 && !bombsArray.includes(randomNumber)) {
-
-
-
-    bombsArray.push(randomNumber());
-
+        bombsArray.push(bombs);
+    }
     i++;
 }
 console.log(bombsArray);
+
+//chiedere 16 numeri diveri all 'utente
+
+UserNumbersArray = [];
+
+let f = 1;
+while (UserNumbersArray.length <= 5) {
+
+    let number = parseInt(prompt('inserisci un  numero'));
+
+    if (!UserNumbersArray.includes(number) && !isNaN(number)) {
+
+        UserNumbersArray.push(number);
+    } else {
+        alert('inserisci un numero diverso');
+    }
+
+    f++;
+}
+console.log(UserNumbersArray);
