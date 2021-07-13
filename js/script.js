@@ -24,33 +24,49 @@ function randomNumber() {
 }
 
 
-i = 0;
+
 while (bombsArray.length <= 15) {
     let bombs = randomNumber();
     if (!bombsArray.includes(bombs)) {
 
         bombsArray.push(bombs);
     }
-    i++;
+
 }
 console.log(bombsArray);
 
-//chiedere 16 numeri diveri all 'utente
 
-UserNumbersArray = [];
 
-let f = 1;
-while (UserNumbersArray.length <= 5) {
+//chiedere 16 numeri diversi all 'utente e inserirli in un array
+
+let UserNumbersArray = [];
+
+
+while (UserNumbersArray.length <= 15) {
 
     let number = parseInt(prompt('inserisci un  numero'));
 
-    if (!UserNumbersArray.includes(number) && !isNaN(number)) {
+    if (!UserNumbersArray.includes(number) && !isNaN(number) && number <= 100) {
 
         UserNumbersArray.push(number);
     } else {
-        alert('inserisci un numero diverso');
+        alert('inserisci un numero valido');
     }
 
-    f++;
+
+    // confrono gli elementi dei due array
+
+    let points = 0;
+    for (i = 0; i < UserNumbersArray.length; i++) {
+
+        let element = UserNumbersArray[i];
+
+        if (!bombsArray.includes(element)) {
+            points += 1;
+        } else {
+            alert('Game over ' + 'hai ottenuto ' + points + ' punti');
+            UserNumbersArray = [];
+
+        }
+    }
 }
-console.log(UserNumbersArray);
