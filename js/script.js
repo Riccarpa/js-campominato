@@ -16,7 +16,7 @@ con difficoltà 2 => tra 1 e 50*/
 
 // preparare array 'bombe' ed inserire 16 numeri casuali
 
-const bombsArray = [];
+let bombsArray = [];
 
 function randomNumber() {
 
@@ -24,13 +24,16 @@ function randomNumber() {
 }
 
 
+
+
 i = 0;
 
-while (bombsArray.length <= 15) {
-    if (!bombsArray.includes(randomNumber())) {
+while (bombsArray.length <= 15 && !bombsArray.includes(randomNumber)) {
 
-        bombsArray.push(randomNumber())
-    }
+
+
+    bombsArray.push(randomNumber());
+
     i++;
 }
 console.log(bombsArray);
