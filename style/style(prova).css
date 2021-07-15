@@ -1,0 +1,32 @@
+.bg-red {
+    background-color: red;
+}
+
+.bg-black {
+    background-color: black;
+}
+
+body {
+    background-color: black;
+    color: gray;
+    height: 100vh;
+}
+
+.display-none {
+    display: none;
+}
+
+
+/* section benvenuto */
+
+#benvenuto {
+    height: 100%;
+}
+
+#game {
+    height: 100%;
+}
+
+.button {
+    cursor: pointer;
+}
