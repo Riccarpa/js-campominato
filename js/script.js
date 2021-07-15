@@ -18,11 +18,29 @@ con difficoltà 2 => tra 1 e 50*/
 // preparare array 'bombe' ed inserire 16 numeri casuali
 
 const bombsArray = [];
+const totalBombs = 16;
 let minNumber = 1;
-let maxNumber = 100;
-const possibilities = maxNumber - minNumber;
+let maxNumber;
+const possibilities = maxNumber - totalBombs;
 
+var level = prompt('scegli difficoltà fra "0", "1", "2"', '0');
 
+// impostare valori difficoltà dei livelli
+
+switch (level) {
+    case '0':
+        maxNumber = 100;
+        break;
+    case '1':
+        maxNumber = 80;
+        break;
+    case '0':
+        maxNumber = 50;
+        break;
+    default:
+        maxNumber = 80;
+
+}
 
 
 while (bombsArray.length <= 15) {
