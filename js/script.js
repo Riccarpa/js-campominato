@@ -14,19 +14,19 @@ con difficoltà 2 => tra 1 e 50*/
 
 
 
+
 // preparare array 'bombe' ed inserire 16 numeri casuali
 
-let bombsArray = [];
+const bombsArray = [];
+let minNumber = 1;
+let maxNumber = 100;
+const possibilities = maxNumber - minNumber;
 
-function randomNumber() {
-
-    return Math.floor(Math.random() * (101 - 1) + 1);
-}
 
 
 
 while (bombsArray.length <= 15) {
-    let bombs = randomNumber();
+    const bombs = randomNumber(minNumber, maxNumber);
     if (!bombsArray.includes(bombs)) {
 
         bombsArray.push(bombs);
@@ -39,19 +39,22 @@ console.log(bombsArray);
 
 //chiedere 16 numeri diversi all 'utente e inserirli in un array
 
-let UserNumbersArray = [];
+const UserNumbersArray = [];
 
 let points = 0;
 
-while (UserNumbersArray.length <= 15) {
+while (UserNumbersArray.length < possibilities) {
 
     let number = parseInt(prompt('inserisci un  numero'));
 
-    if (!UserNumbersArray.includes(number) && !isNaN(number) && number <= 100) {
+    if (numberisvalid(number, UserNumbersArray)) {
 
         UserNumbersArray.push(number);
     } else {
-        alert('inserisci un numero valido');
+        while (!numberisvalid(number, UserNumbersArray)) {
+
+            number = parseInt(prompt('inserisci un  numero valido'));
+        }
     }
 
 
@@ -60,10 +63,22 @@ while (UserNumbersArray.length <= 15) {
 
         points += 1;
     } else {
-        alert('gameover');
-        UserNumbersArray.length = 16;
+        alert('Game over!!! ' + 'Hai ottenuto ' + points + ' punti');
+        UserNumbersArray.length = possibilities;
     }
 
 
 }
-console.log('Game over ' + 'hai ottenuto ' + points + ' punti');
+
+
+// funzioni***************************************
+function numberisvalid(num, numarr) {
+    if (!numarr.includes(num) && !isNaN(num) && num <= 100 && num > 0)
+        return numberisvalid;
+
+}
+
+function randomNumber(min, max) {
+
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
